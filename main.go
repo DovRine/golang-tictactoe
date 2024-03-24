@@ -2,8 +2,23 @@ package main
 
 import (
     "fmt"
+    "os"
+    "os/exec"
+    "runtime"
     "strconv"
 )
+
+func clearScreen() {
+	var cmd *exec.Cmd
+	switch runtime.GOOS {
+	case "windows":
+		cmd = exec.Command("cmd", "/c", "cls")
+	default:
+		cmd = exec.Command("clear")
+	}
+	cmd.Stdout = os.Stdout
+	cmd.Run()
+}
 
 func anyNil(slice []*string) bool {
     for _, elem := range slice {
@@ -36,6 +51,7 @@ type Game struct {
 }
 
 func (g *Game) Render () {
+    clearScreen()
     fmt.Println()
     fmt.Printf("  %s's turn\n", g.currentPlayer)
     fmt.Println()
