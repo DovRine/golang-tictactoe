@@ -29,19 +29,6 @@ func every(slice []*string) bool {
     return true
 }
 
-// create an empty board
-// set x to play
-// render board
-// loop
-//    wait for player to play
-//    evaluate board
-//      if winner or no more moves:
-//          end game
-//      else:
-//          other player's turn
-//    render board
-
-
 type Game struct {
     currentPlayer string
     board []*string
