@@ -111,7 +111,7 @@ func (g *Game) TakeTurn() {
             continue
         }
         // must be in range
-        if cell < 1 || cell > 8 {
+        if cell < 1 || cell > 9 {
             fmt.Println("You must enter one of the remaining cell numbers")
             userInput = ""
             continue
